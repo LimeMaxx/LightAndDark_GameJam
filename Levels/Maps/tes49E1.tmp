@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dox4xeo25et1o"]
+[gd_scene load_steps=11 format=3 uid="uid://dox4xeo25et1o"]
 
 [ext_resource type="PackedScene" uid="uid://ci3pum1hlwlgs" path="res://Characters/Players/thief_body.tscn" id="1_inb0u"]
 [ext_resource type="Texture2D" uid="uid://cfe8vmagf8ryd" path="res://Levels/Assets/map_SpriteSheet.png" id="1_rwcwo"]
 [ext_resource type="Script" path="res://Levels/Maps/test_scene.gd" id="1_ynjck"]
 [ext_resource type="PackedScene" uid="uid://bocy8inivjsef" path="res://Camera/camera_2d.tscn" id="3_lmmr8"]
 [ext_resource type="PackedScene" uid="uid://detmxlrkiejt" path="res://Characters/Players/guard_body.tscn" id="5_f6e8c"]
-[ext_resource type="PackedScene" uid="uid://bsobjcyrxn504" path="res://Characters/Players/guard_enemy.tscn" id="6_t8tov"]
-[ext_resource type="Script" path="res://Characters/Enemy/guard_enemy.gd" id="7_vnpke"]
+[ext_resource type="PackedScene" uid="uid://bsobjcyrxn504" path="res://Characters/Enemy/guard_enemy.tscn" id="6_t8tov"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_slg2g"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -26,9 +25,9 @@ sources/0 = SubResource("TileSetAtlasSource_jqhqg")
 
 [sub_resource type="Curve2D" id="Curve2D_as4el"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 496, -8, 0, 0, 0, 0, 552, 104, 0, 0, 0, 0, 136, 344)
+"points": PackedVector2Array(0, 0, 0, 0, 320, 0, 0, 0, 0, 0, 704, -8, 0, 0, 0, 0, 0, -8, 0, 0, 0, 0, 1088, -208, 0, 0, 0, 0, 1464, 160, 0, 0, 0, 0, 984, 320, 0, 0, 0, 0, 408, 472, 0, 0, 0, 0, -192, 504, 0, 0, 0, 0, -512, 224, 0, 0, 0, 0, -496, 728)
 }
-point_count = 4
+point_count = 10
 
 [node name="Test_Scene" type="Node2D"]
 script = ExtResource("1_ynjck")
@@ -64,10 +63,10 @@ curve = SubResource("Curve2D_as4el")
 
 [node name="EnemyPath" type="PathFollow2D" parent="Pathing"]
 unique_name_in_owner = true
-rotation = -0.0161276
-rotates = false
-loop = false
+position = Vector2(1071.29, 290.904)
+rotation = 2.81984
+progress = 3134.38
 
 [node name="GuardEnemy" parent="Pathing/EnemyPath" instance=ExtResource("6_t8tov")]
-position = Vector2(9.53674e-06, -1.09673e-05)
-script = ExtResource("7_vnpke")
+position = Vector2(924.322, 614.747)
+rotation = -2.81984
