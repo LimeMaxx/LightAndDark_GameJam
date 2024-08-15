@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="LightAndDark_Gamejam"
+run/main_scene="res://Menus/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Characters/Players/icon.svg"
+
+[autoload]
+
+Camera2d="*res://Camera/Camera2D.gd"
 
 [input]
 
