@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://cgpdkumsmxt32"]
+[gd_scene load_steps=2 format=3 uid="uid://cgpdkumsmxt32"]
+
+[ext_resource type="Script" path="res://Menus/main.gd" id="1_0b42s"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_0b42s")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -15,3 +18,43 @@ offset_bottom = 246.0
 theme_override_font_sizes/font_size = 200
 text = "Infiltration"
 horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_top = 268.0
+offset_right = 225.0
+offset_bottom = 370.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 65
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_top = 400.0
+offset_right = 225.0
+offset_bottom = 502.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 65
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -225.0
+offset_top = 522.0
+offset_right = 225.0
+offset_bottom = 624.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 65
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="_on_quit_button_pressed"]
