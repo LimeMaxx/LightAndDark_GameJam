@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ci3pum1hlwlgs"]
 
 [ext_resource type="Script" path="res://Characters/Players/thief_body.gd" id="1_d6lll"]
-[ext_resource type="Texture2D" uid="uid://bnbdlu5n87y00" path="res://Characters/Players/icon.svg" id="1_h5ovk"]
+[ext_resource type="Texture2D" uid="uid://bnbdlu5n87y00" path="res://icon.svg" id="1_h5ovk"]
 [ext_resource type="Script" path="res://Characters/Players/Button.gd" id="3_p3dt1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l20mb"]

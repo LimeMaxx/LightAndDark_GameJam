@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dox4xeo25et1o"]
+[gd_scene load_steps=6 format=3 uid="uid://dox4xeo25et1o"]
 
 [ext_resource type="PackedScene" uid="uid://ci3pum1hlwlgs" path="res://Characters/Players/thief_body.tscn" id="1_inb0u"]
 [ext_resource type="Texture2D" uid="uid://cfe8vmagf8ryd" path="res://Levels/Assets/map_SpriteSheet.png" id="1_rwcwo"]
+[ext_resource type="PackedScene" uid="uid://cwkdh43rb8k5c" path="res://Camera/camera_2d.tscn" id="3_lmmr8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqhqg"]
 texture = ExtResource("1_rwcwo")
@@ -32,5 +33,6 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608,
 position = Vector2(141, 107)
 scale = Vector2(0.125, 0.125)
 
-[node name="Thief_body2" parent="." instance=ExtResource("1_inb0u")]
-position = Vector2(-737, 143)
+[node name="Camera2D" parent="." instance=ExtResource("3_lmmr8")]
+position = Vector2(77, 68)
+zoom = Vector2(4, 4)
