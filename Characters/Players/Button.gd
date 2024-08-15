@@ -1,13 +1,14 @@
-extends Camera2D
+extends Button
 
+var camera2d
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	visible = false
+	camera2d = get_node("Camera2D")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func _set_position(value):
-	position = value
+func _on_pressed():
+	camera2d._set_position(position)
