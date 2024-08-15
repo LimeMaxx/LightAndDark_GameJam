@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
 @export var speed = 5000
-var pause = false
+var pause = true
 
 func get_input(delta):
-	
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed * delta
 
@@ -14,7 +13,8 @@ func _physics_process(delta):
 		move_and_slide()
 
 
-func _on_button_pressed():
+
+func _on_button_2_pressed():
 	pause = true
-	$"../GuardBody/Camera2D".make_current()
-	$"../GuardBody".pause = false
+	$"../Thief_body/Camera2D".make_current()
+	$"../Thief_body".pause = false

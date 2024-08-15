@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci3pum1hlwlgs"]
+[gd_scene load_steps=4 format=3 uid="uid://ci3pum1hlwlgs"]
 
 [ext_resource type="Script" path="res://Characters/Players/thief_body.gd" id="1_d6lll"]
-[ext_resource type="Texture2D" uid="uid://bnbdlu5n87y00" path="res://icon.svg" id="1_h5ovk"]
-[ext_resource type="Script" path="res://Characters/Players/Button.gd" id="3_p3dt1"]
+[ext_resource type="Texture2D" uid="uid://bh16oki4d2opx" path="res://Characters/Players/icon.svg" id="2_msmsm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l20mb"]
 radius = 62.1289
@@ -11,18 +10,18 @@ radius = 62.1289
 script = ExtResource("1_d6lll")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_h5ovk")
+texture = ExtResource("2_msmsm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l20mb")
 
 [node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
 offset_left = -63.0
 offset_top = -63.0
 offset_right = 63.0
 offset_bottom = 63.0
 text = "CAMERA
 BUTTON"
-script = ExtResource("3_p3dt1")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

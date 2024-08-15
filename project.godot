@@ -12,7 +12,11 @@ config_version=5
 
 config/name="LightAndDark_Gamejam"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Characters/Players/icon.svg"
+
+[autoload]
+
+TestScene="*res://Levels/Maps/test_scene.gd"
 
 [input]
 
