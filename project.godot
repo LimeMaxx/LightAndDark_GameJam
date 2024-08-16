@@ -15,6 +15,10 @@ run/main_scene="res://Menus/main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Characters/Players/icon.svg"
 
+[autoload]
+
+TestScene="*res://Levels/Maps/test_scene.gd"
+
 [input]
 
 left={
