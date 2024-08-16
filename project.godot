@@ -17,7 +17,7 @@ config/icon="res://Characters/Players/icon.svg"
 
 [autoload]
 
-TestScene="*res://Levels/Maps/test_scene.gd"
+Signals="*res://Signals.gd"
 
 [input]
 

@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsobjcyrxn504"]
+
+[ext_resource type="Script" path="res://Characters/Enemy/guard_enemy.gd" id="1_rk2vj"]
+[ext_resource type="Texture2D" uid="uid://bh16oki4d2opx" path="res://Characters/Players/icon.svg" id="2_efyav"]
+[ext_resource type="Texture2D" uid="uid://bytnrgjyayxli" path="res://Characters/Players/circle.png" id="3_c6yjy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l20mb"]
+radius = 62.1289
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_42vmb"]
+radius = 519.004
+
+[node name="GuardEnemy" type="CharacterBody2D"]
+platform_floor_layers = 4294967040
+script = ExtResource("1_rk2vj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_efyav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l20mb")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.996078, 1, 1, 1)
+energy = 0.7
+shadow_enabled = true
+texture = ExtResource("3_c6yjy")
+texture_scale = 1.7
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_42vmb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.42
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_right = 1154.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 0.65098)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -573.5
+offset_right = 573.5
+offset_bottom = 273.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.607843, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="CanvasLayer/ColorRect"]
+process_mode = 3
+layout_mode = 0
+offset_left = 360.0
+offset_top = 318.0
+offset_right = 769.0
+offset_bottom = 443.0
+theme_override_font_sizes/font_size = 60
+text = "Retry"
+
+[node name="Quit" type="Button" parent="CanvasLayer/ColorRect"]
+process_mode = 3
+offset_left = 360.0
+offset_top = 495.0
+offset_right = 769.0
+offset_bottom = 620.0
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Quit" to="." method="_on_quit_pressed"]

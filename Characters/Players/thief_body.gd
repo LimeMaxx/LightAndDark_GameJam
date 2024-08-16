@@ -32,9 +32,13 @@ func _physics_process(delta):
 	if pause == false:
 		get_input(delta)
 		move_and_slide()
+		theif()
 
 
 func _on_button_pressed():
 	pause = true
 	$"../GuardBody/Camera2D".make_current()
 	$"../GuardBody".pause = false
+
+func theif():
+	pass
