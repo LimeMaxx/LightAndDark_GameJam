@@ -8,6 +8,7 @@
 radius = 62.1289
 
 [node name="GuardBody" type="CharacterBody2D"]
+platform_floor_layers = 4294967040
 script = ExtResource("1_br4p8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
