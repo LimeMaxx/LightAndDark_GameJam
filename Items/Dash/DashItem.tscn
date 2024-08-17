@@ -1,20 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://biei8xma8hkly"]
 
-[ext_resource type="Script" path="res://Items/DashItem.gd" id="1_qw7c4"]
-[ext_resource type="Texture2D" uid="uid://d37cj04qbife2" path="res://Items/Dash.jpg" id="2_y2iqs"]
+[ext_resource type="Script" path="res://Items/Dash/DashItem.gd" id="1_0vfq7"]
+[ext_resource type="Texture2D" uid="uid://d37cj04qbife2" path="res://Items/Dash/Dash.jpg" id="2_lcjpu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3hhxu"]
 radius = 52.0865
 
 [node name="DashItem" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_qw7c4")
+script = ExtResource("1_0vfq7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3hhxu")
 
 [node name="Dash" type="Sprite2D" parent="."]
 scale = Vector2(0.0813717, 0.0813717)
-texture = ExtResource("2_y2iqs")
+texture = ExtResource("2_lcjpu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

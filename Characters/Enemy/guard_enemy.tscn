@@ -11,6 +11,7 @@ radius = 62.1289
 radius = 519.004
 
 [node name="GuardEnemy" type="CharacterBody2D"]
+process_mode = 1
 collision_mask = 3
 platform_floor_layers = 4294967040
 script = ExtResource("1_rk2vj")
@@ -35,9 +36,16 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_42vmb")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="CaughtTimer" type="Timer" parent="."]
 wait_time = 0.42
 one_shot = true
+
+[node name="FreezeTimer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 6.0
+
+[node name="Turn_off_lights" type="Timer" parent="."]
+wait_time = 9.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -81,12 +89,9 @@ offset_bottom = 620.0
 theme_override_font_sizes/font_size = 60
 text = "Quit"
 
-[node name="Timer2" type="Timer" parent="."]
-process_mode = 3
-wait_time = 3.0
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CaughtTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="FreezeTimer" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Turn_off_lights" to="." method="_on_turn_off_lights_timeout"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/Quit" to="." method="_on_quit_pressed"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

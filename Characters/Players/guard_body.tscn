@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://detmxlrkiejt"]
+[gd_scene load_steps=6 format=3 uid="uid://detmxlrkiejt"]
 
 [ext_resource type="Script" path="res://Characters/Players/guard_body.gd" id="1_br4p8"]
 [ext_resource type="Texture2D" uid="uid://bh16oki4d2opx" path="res://Characters/Players/icon.svg" id="2_vp6jg"]
@@ -7,8 +7,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_l20mb"]
 radius = 62.1289
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_scdkc"]
+radius = 124.904
+
 [node name="GuardBody" type="CharacterBody2D"]
-collision_layer = 4
+collision_layer = 6
+collision_mask = 3
 platform_floor_layers = 4294967040
 script = ExtResource("1_br4p8")
 
@@ -31,31 +35,12 @@ shadow_enabled = true
 texture = ExtResource("3_w5vs1")
 texture_scale = 1.7
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 10
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.50639, 1.50639)
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -77.0
-offset_top = -108.0
-offset_right = 78.0
-offset_bottom = -70.0
-color = Color(0.105882, 0.105882, 0.105882, 0.65098)
-
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -77.5
-offset_top = -19.0
-offset_right = 77.5
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Guard"
-horizontal_alignment = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_scdkc")
 
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

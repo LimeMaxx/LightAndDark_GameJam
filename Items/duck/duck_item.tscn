@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://j6dq4extb3ut"]
+
+[ext_resource type="Script" path="res://Items/duck/duck_item.gd" id="1_7n1g3"]
+[ext_resource type="Texture2D" uid="uid://clelk4p1ak5mk" path="res://Items/duck/cHJpdmF0ZS9zdGF0aWMvaW1hZ2VzL3dlYnNpdGUvMjAyMi0wOC9mcnNvYXBfYnViYmxlc19jb2xvcmZ1bF9iYWxsc184LWltYWdlLWpvYjg1Ml8yLnBuZw.webp" id="1_skbqs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1jg31"]
+radius = 52.0865
+
+[node name="DuckItem" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_7n1g3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1jg31")
+
+[node name="CHJpdmF0zs9ZdGf0aWMvaW1hZ2VzL3DlYnNpdGUvMjAyMi0wOc9McnNvYxBfYnViYmxlc19Jb2XvcmZ1bF9iYWxsc184lWltYWdlLWpvYjg1Ml8yLnBuZw" type="Sprite2D" parent="."]
+scale = Vector2(0.0913803, 0.0913803)
+texture = ExtResource("1_skbqs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

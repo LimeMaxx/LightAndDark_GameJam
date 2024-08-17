@@ -3,15 +3,14 @@ extends CharacterBody2D
 var move = false
 
 func _process(delta: float) -> void:
-	move_local_x(.01)
 	if move == true:
-		look_at($"../Thief_body".global_position)
+		look_at($"../../../Thief_body".global_position)
 
 func _on_area_2d_body_entered(body: Node2D):
 	if move == false:
 		if body.has_method("theif"):
 			move = true
-			$Timer.start()
+			$CaughtTimer.start()
 
 
 func _on_timer_timeout() -> void:
@@ -31,8 +30,17 @@ func killed():
 	queue_free()
 
 func freeze():
-	$Timer2.start()
-	$".".process_mode = Node.PROCESS_MODE_DISABLED
+	$FreezeTimer.start()
+	$".".get_parent().process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_timer_2_timeout() -> void:
-	$".".process_mode = Node.PROCESS_MODE_INHERIT
+	$".".get_parent().process_mode = Node.PROCESS_MODE_INHERIT
+
+func turn_off_lights():
+	$Turn_off_lights.start()
+	$PointLight2D.visible = false
+	$Area2D.monitoring = false
+
+func _on_turn_off_lights_timeout() -> void:
+	$PointLight2D.visible = true
+	$Area2D.monitoring = true
