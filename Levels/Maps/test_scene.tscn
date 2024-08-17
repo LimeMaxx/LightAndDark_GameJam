@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dox4xeo25et1o"]
+[gd_scene load_steps=12 format=3 uid="uid://dox4xeo25et1o"]
 
 [ext_resource type="PackedScene" uid="uid://ci3pum1hlwlgs" path="res://Characters/Players/thief_body.tscn" id="1_inb0u"]
 [ext_resource type="Texture2D" uid="uid://cfe8vmagf8ryd" path="res://Levels/Assets/map_SpriteSheet.png" id="1_rwcwo"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bocy8inivjsef" path="res://Camera/camera_2d.tscn" id="3_lmmr8"]
 [ext_resource type="PackedScene" uid="uid://detmxlrkiejt" path="res://Characters/Players/guard_body.tscn" id="5_f6e8c"]
 [ext_resource type="PackedScene" uid="uid://bsobjcyrxn504" path="res://Characters/Enemy/guard_enemy.tscn" id="6_t8tov"]
+[ext_resource type="PackedScene" uid="uid://biei8xma8hkly" path="res://Items/DashItem.tscn" id="7_baiv0"]
+[ext_resource type="PackedScene" uid="uid://0cvbvr7ily6a" path="res://Items/Throwing Dagger/knife_item.tscn" id="8_rt3ar"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_slg2g"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -55,3 +57,11 @@ unique_name_in_owner = true
 position = Vector2(104, 66)
 rotation = -0.0161276
 scale = Vector2(0.125, 0.125)
+
+[node name="DashItem" parent="." instance=ExtResource("7_baiv0")]
+position = Vector2(258, 59)
+scale = Vector2(-0.164583, -0.164583)
+
+[node name="KnifeItem" parent="." instance=ExtResource("8_rt3ar")]
+position = Vector2(208, 56)
+scale = Vector2(0.156359, 0.156359)
