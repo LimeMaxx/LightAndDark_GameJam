@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dox4xeo25et1o"]
+[gd_scene load_steps=17 format=3 uid="uid://dox4xeo25et1o"]
 
 [ext_resource type="PackedScene" uid="uid://ci3pum1hlwlgs" path="res://Characters/Players/thief_body.tscn" id="1_inb0u"]
 [ext_resource type="Texture2D" uid="uid://cfe8vmagf8ryd" path="res://Levels/Assets/map_SpriteSheet.png" id="1_rwcwo"]
 [ext_resource type="Script" path="res://Levels/Maps/test_scene.gd" id="1_ynjck"]
 [ext_resource type="PackedScene" uid="uid://bocy8inivjsef" path="res://Camera/camera_2d.tscn" id="3_lmmr8"]
 [ext_resource type="PackedScene" uid="uid://detmxlrkiejt" path="res://Characters/Players/guard_body.tscn" id="5_f6e8c"]
+[ext_resource type="PackedScene" uid="uid://vspq2xu4ut7p" path="res://Items/Goal/treasure.tscn" id="6_1mgn2"]
 [ext_resource type="PackedScene" uid="uid://bsobjcyrxn504" path="res://Characters/Enemy/guard_enemy.tscn" id="6_t8tov"]
 [ext_resource type="PackedScene" uid="uid://biei8xma8hkly" path="res://Items/Dash/DashItem.tscn" id="7_baiv0"]
 [ext_resource type="PackedScene" uid="uid://j6dq4extb3ut" path="res://Items/duck/duck_item.tscn" id="8_6h6ho"]
@@ -57,6 +58,10 @@ scale = Vector2(0.156359, 0.156359)
 [node name="DuckItem" parent="." instance=ExtResource("8_6h6ho")]
 position = Vector2(190, 114)
 scale = Vector2(0.158022, 0.158022)
+
+[node name="Treasure" parent="." instance=ExtResource("6_1mgn2")]
+position = Vector2(171, 81)
+scale = Vector2(0.423768, 0.423768)
 
 [node name="TurnOffItem" parent="." instance=ExtResource("11_6rq1r")]
 position = Vector2(325, 45)

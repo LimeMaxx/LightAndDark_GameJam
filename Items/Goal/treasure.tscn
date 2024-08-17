@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://vspq2xu4ut7p"]
+
+[ext_resource type="Script" path="res://Items/Goal/treasure.gd" id="1_25kgc"]
+[ext_resource type="Texture2D" uid="uid://dy3r1tohoscv3" path="res://Items/Goal/Wooden-treasure-chest-with-gold-coins-on-transparent-background-PNG.png" id="1_lxwb1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lwp0r"]
+radius = 23.0868
+
+[node name="Treasure" type="Area2D"]
+collision_layer = 65
+collision_mask = 64
+script = ExtResource("1_25kgc")
+
+[node name="Wooden-treasure-chest-with-gold-coins-on-transparent-background-png" type="Sprite2D" parent="."]
+scale = Vector2(0.0764367, 0.0764367)
+texture = ExtResource("1_lxwb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lwp0r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_right = 1154.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 0.65098)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+modulate = Color(1, 1, 0.317647, 1)
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 200
+text = "YOU WIN!"
+horizontal_alignment = 1
+
+[node name="Next" type="Button" parent="CanvasLayer/ColorRect"]
+process_mode = 3
+layout_mode = 0
+offset_left = 360.0
+offset_top = 318.0
+offset_right = 769.0
+offset_bottom = 443.0
+theme_override_font_sizes/font_size = 60
+text = "Next"
+
+[node name="Quit" type="Button" parent="CanvasLayer/ColorRect"]
+process_mode = 3
+layout_mode = 0
+offset_left = 360.0
+offset_top = 495.0
+offset_right = 769.0
+offset_bottom = 620.0
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Quit" to="." method="_on_quit_pressed"]
