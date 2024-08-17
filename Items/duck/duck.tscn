@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://m60i3flmpq00"]
+
+[ext_resource type="Script" path="res://Items/duck/duck_script.gd" id="1_4kwl5"]
+[ext_resource type="Texture2D" uid="uid://b3va7el4s473h" path="res://Items/duck/duck.png" id="1_db4m7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6oq8"]
+
+[node name="duck_body" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_4kwl5")
+
+[node name="duck_sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("1_db4m7")
+
+[node name="duck_area" type="Area2D" parent="."]
+
+[node name="duck_collision" type="CollisionShape2D" parent="duck_area"]
+shape = SubResource("CircleShape2D_b6oq8")
+
+[connection signal="body_entered" from="duck_area" to="." method="_on_duck_area_body_entered"]
