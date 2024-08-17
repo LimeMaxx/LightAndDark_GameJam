@@ -43,7 +43,14 @@ func get_input(delta):
 			new_duck.global_position = $".".global_position
 			print("duck is spawned")
 			new_duck.rotation_degrees = $".".rotation_degrees
-			new_duck.direction = input_direction
+			if $".".rotation_degrees == 0:
+				new_duck.direction = up
+			elif $".".rotation_degrees == 90:
+				new_duck.direction = right
+			elif $".".rotation_degrees == -180:
+				new_duck.direction = down
+			elif $".".rotation_degrees == -90:
+				new_duck.direction = left
 			duck_one = 1
 	
 
@@ -51,6 +58,7 @@ func _physics_process(delta):
 	if pause == false:
 		get_input(delta)
 		move_and_slide()
+		print(rotation_degrees)
 
 func _on_button_2_pressed():
 	pause = true

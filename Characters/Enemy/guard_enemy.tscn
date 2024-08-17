@@ -70,6 +70,7 @@ text = "Retry"
 
 [node name="Quit" type="Button" parent="CanvasLayer/ColorRect"]
 process_mode = 3
+layout_mode = 0
 offset_left = 360.0
 offset_top = 495.0
 offset_right = 769.0
