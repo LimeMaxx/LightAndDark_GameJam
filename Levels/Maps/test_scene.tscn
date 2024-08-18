@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://vspq2xu4ut7p" path="res://Items/Goal/treasure.tscn" id="6_1mgn2"]
 [ext_resource type="PackedScene" uid="uid://bsobjcyrxn504" path="res://Characters/Enemy/guard_enemy.tscn" id="6_t8tov"]
 [ext_resource type="PackedScene" uid="uid://biei8xma8hkly" path="res://Items/Dash/DashItem.tscn" id="7_baiv0"]
-[ext_resource type="PackedScene" uid="uid://j6dq4extb3ut" path="res://Items/duck/duck_item.tscn" id="8_6h6ho"]
+[ext_resource type="PackedScene" uid="uid://k34d5eru1ry" path="res://Items/duck/duck_item.tscn" id="8_6h6ho"]
 [ext_resource type="PackedScene" uid="uid://0cvbvr7ily6a" path="res://Items/Throwing Dagger/knife_item.tscn" id="8_rt3ar"]
 [ext_resource type="Script" path="res://Levels/Maps/path.gd" id="8_u6lmu"]
 [ext_resource type="PackedScene" uid="uid://f5dry0ph0l4v" path="res://Items/Turn_Off_Light/turn_off_item.tscn" id="11_6rq1r"]
@@ -48,20 +48,19 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608,
 color = Color(0.295867, 0.295866, 0.295866, 1)
 
 [node name="DashItem" parent="." instance=ExtResource("7_baiv0")]
-position = Vector2(258, 59)
+position = Vector2(359, 64)
 scale = Vector2(-0.164583, -0.164583)
 
 [node name="KnifeItem" parent="." instance=ExtResource("8_rt3ar")]
-position = Vector2(208, 56)
+position = Vector2(285, 42)
 scale = Vector2(0.156359, 0.156359)
 
 [node name="DuckItem" parent="." instance=ExtResource("8_6h6ho")]
-position = Vector2(190, 114)
+position = Vector2(253, 60)
 scale = Vector2(0.158022, 0.158022)
 
 [node name="Treasure" parent="." instance=ExtResource("6_1mgn2")]
-position = Vector2(171, 81)
-scale = Vector2(0.423768, 0.423768)
+position = Vector2(38, 37)
 
 [node name="TurnOffItem" parent="." instance=ExtResource("11_6rq1r")]
 position = Vector2(325, 45)

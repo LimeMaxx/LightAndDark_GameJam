@@ -11,6 +11,8 @@ var right = Vector2(1,0)
 var up = Vector2(0,-1)
 var down = Vector2(0,1)
 
+#setup animation
+@onready var anim: AnimatedSprite2D = $animated_thief
 
 func get_input(delta):
 	const DASH = preload("res://Items/Dash/DashItem.tscn")
@@ -33,6 +35,14 @@ func get_input(delta):
 	elif input_direction == up:
 		rotation_degrees = 0
 	velocity = input_direction * speed * delta
+	
+	#ANIMATION
+	if input_direction != Vector2(0, 0):
+		anim.play("walking")
+	else:
+		anim.play("transition")
+		anim.set_frame_and_progress(0, 0)
+	#ANIMATION
 	
 	if can_dash == 1:
 		if dash_one == 0:

@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+#setting up the animation here
+@onready var anim: AnimatedSprite2D = $animated_guard
+
 @export var speed = 5000
 var pause = true
 var duck_one = 0
@@ -12,6 +15,10 @@ var left = Vector2(-1,0)
 var right = Vector2(1,0)
 var up = Vector2(0,-1)
 var down = Vector2(0,1)
+
+func _ready() -> void:
+	anim.set_frame_and_progress(4, 0)
+	#sets the standing still pose
 
 func get_input(delta):
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -33,6 +40,13 @@ func get_input(delta):
 		rotation_degrees = 0
 	velocity = input_direction * speed * delta
 	
+	#ANIMATION
+	if input_direction != Vector2(0, 0):
+		anim.play("walk_forward")
+	else:
+		anim.stop()
+		anim.set_frame_and_progress(4, 0)
+	#ANIMATION
 	
 	if can_duck == 1:
 		if duck_one == 0:
@@ -48,7 +62,7 @@ func get_input(delta):
 						new_duck.direction = right
 					elif $".".rotation_degrees == -180:
 						new_duck.direction = down
-					elif $".".rotation_degrees == -90:
+					elif $".".rotation_degrees == 270:
 						new_duck.direction = left
 					else:
 						if velocity.y > 0:

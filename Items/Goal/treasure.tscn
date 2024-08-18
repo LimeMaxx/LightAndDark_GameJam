@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://vspq2xu4ut7p"]
+[gd_scene load_steps=5 format=3 uid="uid://vspq2xu4ut7p"]
 
 [ext_resource type="Script" path="res://Items/Goal/treasure.gd" id="1_25kgc"]
-[ext_resource type="Texture2D" uid="uid://dy3r1tohoscv3" path="res://Items/Goal/Wooden-treasure-chest-with-gold-coins-on-transparent-background-PNG.png" id="1_lxwb1"]
+[ext_resource type="Texture2D" uid="uid://g5y4qt0rf7yh" path="res://Items/Goal/treasure_chest.png" id="2_d8v53"]
+[ext_resource type="Texture2D" uid="uid://5gmalc7fpkar" path="res://Items/glow_light.png" id="3_lqc8y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwp0r"]
-radius = 23.0868
+radius = 16.0312
 
 [node name="Treasure" type="Area2D"]
 collision_layer = 65
@@ -12,8 +13,8 @@ collision_mask = 64
 script = ExtResource("1_25kgc")
 
 [node name="Wooden-treasure-chest-with-gold-coins-on-transparent-background-png" type="Sprite2D" parent="."]
-scale = Vector2(0.0764367, 0.0764367)
-texture = ExtResource("1_lxwb1")
+texture_filter = 1
+texture = ExtResource("2_d8v53")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lwp0r")
@@ -54,6 +55,12 @@ offset_right = 769.0
 offset_bottom = 620.0
 theme_override_font_sizes/font_size = 60
 text = "Quit"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.123333, 0.123333)
+color = Color(1, 0.596078, 0, 0.572549)
+energy = 2.0
+texture = ExtResource("3_lqc8y")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="pressed" from="CanvasLayer/ColorRect/Next" to="." method="_on_next_pressed"]

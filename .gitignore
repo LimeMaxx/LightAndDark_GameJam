@@ -1,2 +1,10 @@
 # Godot 4+ specific ignores
 .godot/
+Characters/Players/guard_body.gd
+Characters/Players/guard_body.tscn
+Items/duck/duckSprite.png
+Items/duck/duckSprite.png.import
+Characters/Players/guard_body.gd
+Characters/Players/guard_body.tscn
+Characters/Players/guard_body.gd
+Characters/Players/guard_body.tscn

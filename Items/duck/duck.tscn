@@ -1,7 +1,64 @@
-[gd_scene load_steps=4 format=3 uid="uid://m60i3flmpq00"]
+[gd_scene load_steps=12 format=3 uid="uid://m60i3flmpq00"]
 
 [ext_resource type="Script" path="res://Items/duck/duck_script.gd" id="1_4kwl5"]
-[ext_resource type="Texture2D" uid="uid://b3va7el4s473h" path="res://Items/duck/duck.png" id="1_db4m7"]
+[ext_resource type="Texture2D" uid="uid://b1lag6knmj5pp" path="res://Items/duck/duckSprite.png" id="2_qjovb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmb87"]
+atlas = ExtResource("2_qjovb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqffb"]
+atlas = ExtResource("2_qjovb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp3ta"]
+atlas = ExtResource("2_qjovb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chsgx"]
+atlas = ExtResource("2_qjovb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53hkv"]
+atlas = ExtResource("2_qjovb")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn1tv"]
+atlas = ExtResource("2_qjovb")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c536j"]
+atlas = ExtResource("2_qjovb")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rd8ik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmb87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqffb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp3ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chsgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53hkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn1tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c536j")
+}],
+"loop": true,
+"name": &"walk_forward",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b6oq8"]
 
@@ -9,9 +66,10 @@
 collision_layer = 4
 script = ExtResource("1_4kwl5")
 
-[node name="duck_sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.063, 0.063)
-texture = ExtResource("1_db4m7")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rd8ik")
+animation = &"walk_forward"
 
 [node name="duck_area" type="Area2D" parent="."]
 

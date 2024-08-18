@@ -1,7 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://j6dq4extb3ut"]
+[gd_scene load_steps=12 format=3 uid="uid://k34d5eru1ry"]
 
 [ext_resource type="Script" path="res://Items/duck/duck_item.gd" id="1_7n1g3"]
-[ext_resource type="Texture2D" uid="uid://clelk4p1ak5mk" path="res://Items/duck/cHJpdmF0ZS9zdGF0aWMvaW1hZ2VzL3dlYnNpdGUvMjAyMi0wOC9mcnNvYXBfYnViYmxlc19jb2xvcmZ1bF9iYWxsc184LWltYWdlLWpvYjg1Ml8yLnBuZw.webp" id="1_skbqs"]
+[ext_resource type="Texture2D" uid="uid://qcucv65l5p7r" path="res://Items/item_bubble_spriteSheet.png" id="2_f8vyi"]
+[ext_resource type="Texture2D" uid="uid://5gmalc7fpkar" path="res://Items/glow_light.png" id="3_dcp01"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh2pk"]
+atlas = ExtResource("2_f8vyi")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neymh"]
+atlas = ExtResource("2_f8vyi")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqnop"]
+atlas = ExtResource("2_f8vyi")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j37w3"]
+atlas = ExtResource("2_f8vyi")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf5dm"]
+atlas = ExtResource("2_f8vyi")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gy3d"]
+atlas = ExtResource("2_f8vyi")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cfu7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh2pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neymh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqnop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j37w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf5dm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gy3d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jg31"]
 radius = 52.0865
@@ -10,11 +61,17 @@ radius = 52.0865
 collision_mask = 2
 script = ExtResource("1_7n1g3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Animated_Duck" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_cfu7j")
+animation = &"idle"
+
+[node name="PickUp_CollisionCollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1jg31")
 
-[node name="CHJpdmF0zs9ZdGf0aWMvaW1hZ2VzL3DlYnNpdGUvMjAyMi0wOc9McnNvYxBfYnViYmxlc19Jb2XvcmZ1bF9iYWxsc184lWltYWdlLWpvYjg1Ml8yLnBuZw" type="Sprite2D" parent="."]
-scale = Vector2(0.0913803, 0.0913803)
-texture = ExtResource("1_skbqs")
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.456667, 0.456667)
+texture = ExtResource("3_dcp01")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

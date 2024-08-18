@@ -1,7 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://biei8xma8hkly"]
+[gd_scene load_steps=12 format=3 uid="uid://biei8xma8hkly"]
 
 [ext_resource type="Script" path="res://Items/Dash/DashItem.gd" id="1_0vfq7"]
-[ext_resource type="Texture2D" uid="uid://d37cj04qbife2" path="res://Items/Dash/Dash.jpg" id="2_lcjpu"]
+[ext_resource type="Texture2D" uid="uid://qcucv65l5p7r" path="res://Items/item_bubble_spriteSheet.png" id="2_pax43"]
+[ext_resource type="Texture2D" uid="uid://5gmalc7fpkar" path="res://Items/glow_light.png" id="3_ayojd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ljtc"]
+atlas = ExtResource("2_pax43")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0o4t"]
+atlas = ExtResource("2_pax43")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4lyx"]
+atlas = ExtResource("2_pax43")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmlhe"]
+atlas = ExtResource("2_pax43")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4en4t"]
+atlas = ExtResource("2_pax43")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syxtk"]
+atlas = ExtResource("2_pax43")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ovy54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ljtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0o4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4lyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmlhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4en4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syxtk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3hhxu"]
 radius = 52.0865
@@ -10,11 +61,17 @@ radius = 52.0865
 collision_mask = 2
 script = ExtResource("1_0vfq7")
 
+[node name="Animated_Dash" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_ovy54")
+animation = &"idle"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3hhxu")
 
-[node name="Dash" type="Sprite2D" parent="."]
-scale = Vector2(0.0813717, 0.0813717)
-texture = ExtResource("2_lcjpu")
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.456667, 0.456667)
+texture = ExtResource("3_ayojd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

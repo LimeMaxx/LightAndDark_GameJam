@@ -1,7 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://0cvbvr7ily6a"]
+[gd_scene load_steps=12 format=3 uid="uid://0cvbvr7ily6a"]
 
 [ext_resource type="Script" path="res://Items/Throwing Dagger/knife_item.gd" id="1_lvusp"]
-[ext_resource type="Texture2D" uid="uid://m53xknyaxhbc" path="res://Items/Throwing Dagger/Knife_item.png" id="2_gg0ce"]
+[ext_resource type="Texture2D" uid="uid://qcucv65l5p7r" path="res://Items/item_bubble_spriteSheet.png" id="2_tul3n"]
+[ext_resource type="Texture2D" uid="uid://5gmalc7fpkar" path="res://Items/glow_light.png" id="3_anocx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du6er"]
+atlas = ExtResource("2_tul3n")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imv8q"]
+atlas = ExtResource("2_tul3n")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsuc7"]
+atlas = ExtResource("2_tul3n")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb53o"]
+atlas = ExtResource("2_tul3n")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4031"]
+atlas = ExtResource("2_tul3n")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qucl7"]
+atlas = ExtResource("2_tul3n")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_padyb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du6er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imv8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsuc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb53o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4031")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qucl7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3hhxu"]
 radius = 52.0865
@@ -10,12 +61,17 @@ radius = 52.0865
 collision_mask = 2
 script = ExtResource("1_lvusp")
 
+[node name="Animated_Knife" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_padyb")
+animation = &"idle"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3hhxu")
 
-[node name="KnifeItem" type="Sprite2D" parent="."]
-position = Vector2(9.53674e-07, 0)
-scale = Vector2(0.201884, 0.201884)
-texture = ExtResource("2_gg0ce")
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.456667, 0.456667)
+texture = ExtResource("3_anocx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

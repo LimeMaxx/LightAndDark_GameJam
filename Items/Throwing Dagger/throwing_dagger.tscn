@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cm602wim1rcws"]
 
-[ext_resource type="Texture2D" uid="uid://bh16oki4d2opx" path="res://Characters/Players/icon.svg" id="1_s8n2n"]
 [ext_resource type="Script" path="res://Items/Throwing Dagger/throwing_dagger.gd" id="1_ttnct"]
+[ext_resource type="Texture2D" uid="uid://dbg1q8f1yjujf" path="res://Items/Throwing Dagger/knife.png" id="2_7nj7u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1mmn5"]
-radius = 50.0899
+radius = 66.8567
 
 [node name="Throwing_Dagger" type="CharacterBody2D"]
 scale = Vector2(0.119659, 0.119659)
@@ -12,7 +12,9 @@ collision_layer = 4
 script = ExtResource("1_ttnct")
 
 [node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("1_s8n2n")
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("2_7nj7u")
 
 [node name="Area2D" type="Area2D" parent="."]
 

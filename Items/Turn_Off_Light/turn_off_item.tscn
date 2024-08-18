@@ -1,7 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://f5dry0ph0l4v"]
+[gd_scene load_steps=12 format=3 uid="uid://f5dry0ph0l4v"]
 
-[ext_resource type="Texture2D" uid="uid://1hdbra3h2suu" path="res://Items/Turn_Off_Light/TurnOffItem.png" id="1_a5qor"]
 [ext_resource type="Script" path="res://Items/Turn_Off_Light/turn_off_item.gd" id="1_saj5e"]
+[ext_resource type="Texture2D" uid="uid://qcucv65l5p7r" path="res://Items/item_bubble_spriteSheet.png" id="2_5q1c4"]
+[ext_resource type="Texture2D" uid="uid://5gmalc7fpkar" path="res://Items/glow_light.png" id="3_6fwew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a0ll"]
+atlas = ExtResource("2_5q1c4")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0y0u"]
+atlas = ExtResource("2_5q1c4")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gorr3"]
+atlas = ExtResource("2_5q1c4")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2ihu"]
+atlas = ExtResource("2_5q1c4")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk4ar"]
+atlas = ExtResource("2_5q1c4")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt5gy"]
+atlas = ExtResource("2_5q1c4")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7i5o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a0ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0y0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gorr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2ihu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk4ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt5gy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hrejq"]
 radius = 52.0865
@@ -10,11 +61,17 @@ radius = 52.0865
 collision_mask = 2
 script = ExtResource("1_saj5e")
 
-[node name="TurnOffItem" type="Sprite2D" parent="."]
-scale = Vector2(0.213493, 0.213493)
-texture = ExtResource("1_a5qor")
+[node name="Animated_Extinguish" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_r7i5o")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hrejq")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.456667, 0.456667)
+texture = ExtResource("3_6fwew")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
